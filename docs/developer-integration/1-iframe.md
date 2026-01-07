@@ -1,0 +1,82 @@
+# Iframe
+
+Integrate KontraxHub directly into your website using our secure iframe embed — allowing your users to interact with your contracts without leaving your site.
+
+## 🔧 Step-by-Step Integration
+
+### 1️⃣ Add & Verify Your Contracts on KontraxHub
+
+Before embedding anything, make sure:
+
+- You have **added your smart contracts** to KontraxHub
+- You **carefully verify** that all contract information is correct  
+  (network, address, ABI, permissions, etc.)
+
+:::warning Important
+Incorrect contract information may cause failed interactions or unexpected behavior for your users.
+:::
+
+### 2️⃣ Generate Your Embed Iframe
+
+Once your contract is ready:
+
+1. Open your contract page on **KontraxHub**
+2. Click **`Share`**
+3. Click **`Copy iframe`**
+4. Paste the iframe code into your website
+
+Example:
+
+```html
+<iframe
+  src="https://kontraxhub.pages.dev/embed/7c3c38dd-cf6d-45fc-b607-460b2470cb0f?metadata=false"
+/>
+```
+
+This embed allows users to securely interact with their wallets and execute contract actions directly from your site. You can use the following properties to customize your iframe visualization. These options can also be controlled when you copy the iframe link:
+
+| Properties | Types            | Descriptions                                    |
+| ---------- | ---------------- | ----------------------------------------------- |
+| `metadata` | `true` / `false` | Whether to show your contract metadata          |
+| `address`  | string           | Default active address to display on first load |
+
+## 🖥️ Display Recommendations
+
+To ensure the best user experience:
+
+### ✔ Control the iframe width
+
+The KontraxHub interface contains forms and action panels that should not be too wide.
+We recommend constraining the iframe size:
+
+```html
+<iframe
+  src="https://kontraxhub.pages.dev/embed/7c3c38dd-cf6d-45fc-b607-460b2470cb0f?metadata=false"
+  style="width: 100%; max-width: 800px; height: 700px; border: none;"
+/>
+```
+
+### ✔ CSS Suggestions
+
+These suggestions keep the UI readable and consistent with wallet-style interfaces.
+
+| Show metadata | Suggested width |
+| ------------- | --------------- |
+| `true`        | 950px - 1200px  |
+| `false`       | 600px - 800px   |
+
+## 🔐 Security & Trust Notes
+
+- KontraxHub never accesses private keys
+- Wallet connections are handled entirely by the user's wallet provider
+- All contract interactions happen on-chain from the user’s wallet
+
+## 🚀 Result
+
+With this embed, your users can:
+
+- Connect their wallets
+- Interact with your verified contracts
+- Execute transactions — all inside your website
+
+No redirects. No external app switching.
