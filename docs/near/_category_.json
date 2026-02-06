@@ -1,0 +1,8 @@
+{
+  "label": "Near",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "This section provides instructions for deploying and interacting with Near smart contracts."
+  }
+}

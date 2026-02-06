@@ -1,0 +1,40 @@
+---
+sidebar_position: 3
+---
+
+# Interact with Near Contract
+
+## Add Your Contract
+
+To begin working with your Near contract in **_KontraxHub_**, choose one of the following methods:
+
+### Method 1: Deploy and Interact
+
+If you intend to deploy your Near contract to the blockchain, you must provide the Near ABI and bytecode of the contract.
+
+Navigate to [Contract Templates](https://tranquanghuy7198.github.io/kontraxhub/#/contract-templates) to add this.
+
+#### Near Bytecode
+
+You can either upload a WASM bytecode file or provide the bytecode data manually. Note that if you want to provide the bytecode manually, make sure that it is in the base-64 format.
+
+#### Custom Contract Name
+
+You can customize the account ID of your contract when deploying to Near blockchains. An advanced config will help you with this. Please make sure that the account ID you enter is available (not existing).
+
+If you leave this blank, a random account ID will be calculated.
+
+### Method 2: Interact Only
+
+If you only need to interact with an existing Near contract, only the Near ABI is required.
+
+Navigate to [Contract Explorer](https://tranquanghuy7198.github.io/kontraxhub/#/contracts) to register your contract.
+
+## Interaction
+
+You can quickly interact with your Near contracts by providing necessary parameters
+
+- **Complex parameters** (arrays, custom structs, etc.) must be provided in JSON format
+- **Native parameters** (numbers, strings, etc.) can be provided as plain text
+
+The data type displayed in the inputs will be useful for you to determine the data format.
