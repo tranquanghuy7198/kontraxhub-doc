@@ -3,8 +3,9 @@ interface PageMetadata {
   endpoint: string;
 }
 
-export const domain = "https://kontraxhub.pages.dev";
-export const pages: Record<string, PageMetadata> = {
+export const PRODUCT_NAME = "KontraxHub";
+export const DOMAIN = "https://kontraxhub.pages.dev";
+export const PAGES: Record<string, PageMetadata> = {
   contracts: { name: "Contracts", endpoint: "/contracts" },
   contractExplorer: {
     name: "Contract Explorer",
