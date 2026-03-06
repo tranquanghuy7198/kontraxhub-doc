@@ -1,0 +1,8 @@
+{
+  "label": "Stellar",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "This section provides instructions for deploying and interacting with Stellar smart contracts."
+  }
+}
