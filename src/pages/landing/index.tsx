@@ -1,0 +1,408 @@
+import { useState, useEffect } from "react";
+import {
+  ArrowRight,
+  Code,
+  Users,
+  Zap,
+  ExternalLink,
+  Github,
+  MessageCircle,
+  Rocket,
+  Layers,
+  Shield,
+  ChevronDown,
+  Star,
+  Terminal,
+  Sparkles,
+} from "lucide-react";
+import "./landing.css";
+
+const KontraxLogo = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg viewBox="0 0 40 40" className={className} fill="currentColor">
+    <circle cx="8" cy="20" r="4" />
+    <circle cx="20" cy="8" r="3" />
+    <circle cx="20" cy="20" r="5" />
+    <circle cx="32" cy="14" r="3" />
+    <circle cx="32" cy="26" r="3" />
+    <line
+      x1="11"
+      y1="18"
+      x2="16"
+      y2="12"
+      stroke="currentColor"
+      strokeWidth="2.5"
+    />
+    <line
+      x1="12"
+      y1="20"
+      x2="15"
+      y2="20"
+      stroke="currentColor"
+      strokeWidth="2.5"
+    />
+    <line
+      x1="25"
+      y1="18"
+      x2="29"
+      y2="15"
+      stroke="currentColor"
+      strokeWidth="2.5"
+    />
+    <line
+      x1="25"
+      y1="22"
+      x2="29"
+      y2="25"
+      stroke="currentColor"
+      strokeWidth="2.5"
+    />
+  </svg>
+);
+
+const resources = [
+  {
+    id: "quickstart",
+    Icon: Rocket,
+    title: "Quick Start Guide",
+    subtitle: "Deploy your first contract in minutes",
+    description:
+      "Connect your wallet, upload your bytecode, and interact with your smart contract — no CLI required.",
+    cta: "Get Started",
+    link: "https://kontraxhub.pages.dev",
+    glowClass: "kh-card-glow-orange",
+    iconClass: "kh-card-icon-orange",
+    ctaClass: "kh-card-cta-orange",
+    dotClass: "kh-card-dot-orange",
+    features: ["Wallet Connection", "Contract Deployment", "Live Interaction"],
+  },
+  {
+    id: "explorer",
+    Icon: Code,
+    title: "Contract Explorer",
+    subtitle: "Inspect any deployed contract",
+    description:
+      "Browse contract ABIs, call functions interactively, and inspect state in real time across multiple networks.",
+    cta: "Open Explorer",
+    link: "https://kontraxhub.pages.dev/contract-explorer",
+    glowClass: "kh-card-glow-red",
+    iconClass: "kh-card-icon-red",
+    ctaClass: "kh-card-cta-red",
+    dotClass: "kh-card-dot-red",
+    features: ["ABI Browser", "Function Calls", "State Inspection"],
+  },
+  {
+    id: "workspaces",
+    Icon: Users,
+    title: "Workspaces",
+    subtitle: "Organize across projects",
+    description:
+      "Group contracts into workspaces for cleaner project management. Switch between networks without losing context.",
+    cta: "View Workspaces",
+    link: "https://kontraxhub.pages.dev/workspaces",
+    glowClass: "kh-card-glow-orange",
+    iconClass: "kh-card-icon-orange",
+    ctaClass: "kh-card-cta-orange",
+    dotClass: "kh-card-dot-orange",
+    features: ["Multi-Contract Groups", "Network Switching", "Shared Access"],
+  },
+];
+
+const networks = [
+  {
+    name: "NEAR",
+    status: "Supported",
+    docs: "/docs/near/prepare-near-project",
+  },
+  {
+    name: "Stellar",
+    status: "Supported",
+    docs: "/docs/stellar/prepare-stellar-project",
+  },
+  { name: "Solana (Anchor)", status: "Supported", docs: "#" },
+  { name: "EVM", status: "Coming Soon", docs: null },
+];
+
+const highlights = [
+  { Icon: Shield, label: "No login required" },
+  { Icon: Zap, label: "Real-time interaction" },
+  { Icon: Layers, label: "Multi-network" },
+];
+
+export default function Landing() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div className="kh-landing">
+      {/* Animated background */}
+      <div className="kh-bg-blobs">
+        <div
+          className="kh-blob kh-blob-1"
+          style={{
+            transform: `translate(${scrollY * 0.05}px, ${scrollY * 0.02}px)`,
+          }}
+        />
+        <div
+          className="kh-blob kh-blob-2"
+          style={{
+            transform: `translate(${-scrollY * 0.03}px, ${scrollY * 0.04}px)`,
+          }}
+        />
+        <div
+          className="kh-blob kh-blob-3"
+          style={{
+            transform: `translate(${scrollY * 0.02}px, ${-scrollY * 0.03}px)`,
+          }}
+        />
+        <div className="kh-bg-grid" />
+      </div>
+
+      {/* Nav */}
+      <nav className="kh-nav">
+        <div className="kh-nav-inner">
+          <div className="kh-nav-logo">
+            <div className="kh-nav-logo-icon">
+              <KontraxLogo className="w-6 h-6" />
+            </div>
+            <span className="kh-nav-logo-text">
+              Kontrax<span>Hub</span>
+            </span>
+          </div>
+          <div className="kh-nav-links">
+            <a href="#start">Get Started</a>
+            <a href="#networks">Networks</a>
+            <a href="#cta">Resources</a>
+            <a
+              href="https://kontraxhub.pages.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="kh-nav-cta"
+            >
+              Open App
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section className="kh-hero">
+        <div className="kh-hero-inner">
+          <div className="kh-badge">
+            <Sparkles size={16} />
+            <span>Smart contract tooling for blockchain engineers</span>
+          </div>
+
+          <h1 className="kh-hero-title">
+            Interact with{" "}
+            <span className="kh-gradient-text">Smart Contracts</span>
+            <br />
+            without the friction
+          </h1>
+
+          <p className="kh-hero-subtitle">
+            KontraxHub gives you a unified explorer to deploy, browse, and call
+            smart contracts across multiple blockchain networks — all from your
+            browser.
+          </p>
+
+          <div className="kh-hero-actions">
+            <a
+              href="https://kontraxhub.pages.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="kh-btn-primary"
+            >
+              Open KontraxHub
+              <ArrowRight size={20} />
+            </a>
+            <a href="/docs/intro" className="kh-btn-secondary">
+              Read the Docs
+            </a>
+          </div>
+
+          <div className="kh-hero-stats">
+            {highlights.map(({ Icon, label }) => (
+              <div className="kh-hero-stat" key={label}>
+                <Icon size={16} />
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="kh-hero-scroll">
+          <ChevronDown size={24} />
+        </div>
+      </section>
+
+      {/* Cards */}
+      <section id="start" className="kh-cards-section">
+        <div className="kh-cards-inner">
+          <div className="kh-section-header">
+            <h2 className="kh-section-title">Everything in one place</h2>
+            <p className="kh-section-subtitle">
+              Three core tools to cover your full contract workflow
+            </p>
+          </div>
+          <div className="kh-cards-grid">
+            {resources.map((r) => (
+              <div className="kh-card" key={r.id}>
+                <div className={`kh-card-glow ${r.glowClass}`} />
+                <div className="kh-card-inner">
+                  <div className={`kh-card-icon ${r.iconClass}`}>
+                    <r.Icon size={28} />
+                  </div>
+                  <h3 className="kh-card-title">{r.title}</h3>
+                  <p className="kh-card-subtitle">{r.subtitle}</p>
+                  <p className="kh-card-desc">{r.description}</p>
+                  <ul className="kh-card-features">
+                    {r.features.map((f) => (
+                      <li className="kh-card-feature" key={f}>
+                        <span className={`kh-card-dot ${r.dotClass}`} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={r.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`kh-card-cta ${r.ctaClass}`}
+                  >
+                    {r.cta}
+                    <ExternalLink size={16} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Networks */}
+      <section id="networks" className="kh-networks-section">
+        <div className="kh-networks-bg" />
+        <div className="kh-networks-inner">
+          <div className="kh-section-header">
+            <div className="kh-badge kh-badge-red">
+              <Terminal size={16} />
+              <span>Multi-chain support</span>
+            </div>
+            <h2 className="kh-section-title">Supported Networks</h2>
+            <p className="kh-section-subtitle">
+              Pick your network and follow the setup guide to get started
+            </p>
+          </div>
+          <div className="kh-table-wrapper">
+            <div className="kh-table-head">
+              <span className="kh-th-1">Network</span>
+              <span className="kh-th-2">Status</span>
+              <span className="kh-th-3">Documentation</span>
+            </div>
+            {networks.map((n) => (
+              <div className="kh-table-row" key={n.name}>
+                <span className="kh-td-1">{n.name}</span>
+                <span className="kh-td-2">{n.status}</span>
+                <span className="kh-td-3">
+                  {n.docs && n.docs !== "#" ? (
+                    <a href={n.docs}>Setup Guide →</a>
+                  ) : n.docs === "#" ? (
+                    <a href="#">Setup Guide →</a>
+                  ) : (
+                    <span className="kh-td-soon">Coming soon</span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="kh-note">
+            <div className="kh-note-icon">
+              <Star size={20} />
+            </div>
+            <div>
+              <p className="kh-note-title">More networks on the way</p>
+              <p className="kh-note-text">
+                KontraxHub is actively expanding network support. EVM-compatible
+                chains and additional networks are in progress. Watch the
+                documentation for updates.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="cta" className="kh-cta-section">
+        <div className="kh-cta-inner">
+          <div className="kh-cta-box">
+            <div className="kh-cta-overlay" />
+            <div className="kh-cta-content">
+              <h2 className="kh-cta-title">Ready to start building?</h2>
+              <p className="kh-cta-subtitle">
+                Open KontraxHub in your browser and connect your first contract
+                in minutes — no installation required.
+              </p>
+              <div className="kh-cta-buttons">
+                <a
+                  href="https://kontraxhub.pages.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="kh-btn-dark"
+                >
+                  <Rocket size={20} />
+                  Open KontraxHub
+                </a>
+                <a href="/docs/intro" className="kh-btn-ghost">
+                  Read the Docs
+                  <ArrowRight size={20} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="kh-footer">
+        <div className="kh-footer-inner">
+          <div className="kh-footer-logo">
+            <div className="kh-footer-logo-icon">
+              <KontraxLogo className="w-5 h-5" />
+            </div>
+            <span className="kh-footer-logo-text">
+              Kontrax<span>Hub</span>
+            </span>
+          </div>
+          <div className="kh-footer-links">
+            <a href="/docs/intro">Docs</a>
+            <a
+              href="https://kontraxhub.pages.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              App
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={16} />
+            </a>
+            <a href="mailto:hello@kontraxhub.dev">
+              <MessageCircle size={16} />
+            </a>
+          </div>
+          <p className="kh-footer-copy">
+            © 2026 KontraxHub. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
