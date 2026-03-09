@@ -17,3 +17,10 @@ export const PAGES: Record<string, PageMetadata> = {
     endpoint: "/workspace-explorer/:id",
   },
 };
+
+export const pageLink = (id: string, params?: Record<string, string>) => {
+  let endpoint = PAGES[id].endpoint;
+  for (const [key, value] of Object.entries(params))
+    endpoint = endpoint.replace(`:${key}`, value);
+  return `${DOMAIN}${endpoint}`;
+};
