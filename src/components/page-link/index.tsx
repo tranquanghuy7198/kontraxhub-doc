@@ -3,15 +3,21 @@ import "./page-link.css";
 
 const PageLink = ({
   id,
-  params = {},
+  pathParams = {},
+  queryParams = {},
 }: {
   id: string;
-  params?: Record<string, string>;
+  pathParams?: Record<string, string>;
+  queryParams?: Record<string, string>;
 }) => {
   const page = PAGES[id];
   if (!page) return undefined;
   return (
-    <a href={pageLink(id, params)} target="_blank" className="page-link">
+    <a
+      href={pageLink(id, pathParams, queryParams)}
+      target="_blank"
+      className="page-link"
+    >
       {page.name}
     </a>
   );

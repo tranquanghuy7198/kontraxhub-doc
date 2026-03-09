@@ -17,11 +17,19 @@ export const PAGES: Record<string, PageMetadata> = {
     name: "Workspace Explorer",
     endpoint: "/workspace-explorer/:id",
   },
+  embed: { name: "Embed", endpoint: "/embed/:id" },
 };
 
-export const pageLink = (id: string, params: Record<string, string> = {}) => {
+export const pageLink = (
+  id: string,
+  pathParams: Record<string, string> = {},
+  queryParams: Record<string, string> = {},
+) => {
   let endpoint = PAGES[id].endpoint;
-  for (const [key, value] of Object.entries(params))
+  for (const [key, value] of Object.entries(pathParams))
     endpoint = endpoint.replace(`:${key}`, value);
-  return `${DOMAIN}${endpoint}`;
+  const url = new URL(endpoint, DOMAIN);
+  for (const [key, value] of Object.entries(queryParams))
+    url.searchParams.set(key, value);
+  return url.toString();
 };
