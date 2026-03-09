@@ -2,9 +2,9 @@
 
 /* ========== Scoped Variables ========== */
 .kh-landing {
-  --kh-orange: #ff8e02;
-  --kh-red: #fa2e04;
-  --kh-dark-red: #b70001;
+  --kh-teal: #1abc9c;
+  --kh-teal-dark: #0e8c72;
+  --kh-teal-darker: #0a6654;
   --kh-black: #000000;
   --kh-white: #ffffff;
   --kh-gray-300: #d1d5db;
@@ -12,17 +12,17 @@
   --kh-gray-500: #6b7280;
   --kh-white-5: rgba(255, 255, 255, 0.05);
   --kh-white-10: rgba(255, 255, 255, 0.1);
-  --kh-orange-10: rgba(255, 142, 2, 0.1);
-  --kh-orange-20: rgba(255, 142, 2, 0.2);
-  --kh-orange-25: rgba(255, 142, 2, 0.25);
-  --kh-orange-30: rgba(255, 142, 2, 0.3);
-  --kh-orange-50: rgba(255, 142, 2, 0.5);
-  --kh-orange-70: rgba(255, 142, 2, 0.7);
-  --kh-red-10: rgba(250, 46, 4, 0.1);
-  --kh-red-20: rgba(250, 46, 4, 0.2);
-  --kh-red-30: rgba(250, 46, 4, 0.3);
-  --kh-gradient-main: linear-gradient(135deg, #ff8e02, #fa2e04);
-  --kh-gradient-dark: linear-gradient(135deg, #fa2e04, #b70001);
+  --kh-teal-10: rgba(26, 188, 156, 0.1);
+  --kh-teal-20: rgba(26, 188, 156, 0.2);
+  --kh-teal-25: rgba(26, 188, 156, 0.25);
+  --kh-teal-30: rgba(26, 188, 156, 0.3);
+  --kh-teal-50: rgba(26, 188, 156, 0.5);
+  --kh-teal-70: rgba(26, 188, 156, 0.7);
+  --kh-teal-d-10: rgba(14, 140, 114, 0.1);
+  --kh-teal-d-20: rgba(14, 140, 114, 0.2);
+  --kh-teal-d-30: rgba(14, 140, 114, 0.3);
+  --kh-gradient-main: linear-gradient(135deg, #1abc9c, #0e8c72);
+  --kh-gradient-dark: linear-gradient(135deg, #0e8c72, #0a6654);
   --kh-font: "Space Grotesk", sans-serif;
 }
 
@@ -69,7 +69,7 @@
   top: 5%;
   left: 5%;
   opacity: 0.4;
-  background: radial-gradient(circle, #ff8e02 0%, transparent 70%);
+  background: radial-gradient(circle, #1abc9c 0%, transparent 70%);
   animation: kh-float1 12s ease-in-out infinite;
 }
 .kh-blob-2 {
@@ -78,7 +78,7 @@
   top: 40%;
   right: 5%;
   opacity: 0.4;
-  background: radial-gradient(circle, #fa2e04 0%, transparent 70%);
+  background: radial-gradient(circle, #0e8c72 0%, transparent 70%);
   animation: kh-float2 15s ease-in-out infinite;
 }
 .kh-blob-3 {
@@ -87,7 +87,7 @@
   bottom: 10%;
   left: 25%;
   opacity: 0.3;
-  background: radial-gradient(circle, #b70001 0%, transparent 70%);
+  background: radial-gradient(circle, #0a6654 0%, transparent 70%);
   animation: kh-float3 18s ease-in-out infinite;
 }
 .kh-bg-grid {
@@ -95,8 +95,8 @@
   inset: 0;
   opacity: 0.1;
   background-image:
-    linear-gradient(rgba(255, 142, 2, 0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 142, 2, 0.2) 1px, transparent 1px);
+    linear-gradient(rgba(26, 188, 156, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 188, 156, 0.2) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 @keyframes kh-float1 {
@@ -169,7 +169,7 @@
   color: var(--kh-white);
 }
 .kh-nav-logo-text span {
-  color: var(--kh-orange);
+  color: var(--kh-teal);
 }
 .kh-nav-links {
   display: flex;
@@ -227,16 +227,16 @@
   gap: 8px;
   padding: 8px 16px;
   border-radius: 9999px;
-  background: var(--kh-orange-10);
-  border: 1px solid var(--kh-orange-20);
+  background: var(--kh-teal-10);
+  border: 1px solid var(--kh-teal-20);
   margin-bottom: 32px;
-  color: #fdba74;
+  color: #a7f3e4;
   font-size: 0.875rem;
 }
 .kh-badge-red {
-  background: var(--kh-red-10);
-  border: 1px solid var(--kh-red-30);
-  color: #fca5a5;
+  background: var(--kh-teal-d-10);
+  border: 1px solid var(--kh-teal-d-30);
+  color: #a7f3e4;
 }
 .kh-hero-title {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
@@ -246,7 +246,7 @@
   color: var(--kh-white);
 }
 .kh-gradient-text {
-  background: linear-gradient(135deg, #ff8e02, #fa2e04, #b70001);
+  background: linear-gradient(135deg, #1abc9c, #0e8c72, #0a6654);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -287,7 +287,7 @@
     transform 0.2s;
 }
 .kh-btn-primary:hover {
-  box-shadow: 0 10px 30px var(--kh-orange-25);
+  box-shadow: 0 10px 30px var(--kh-teal-25);
   transform: translateY(-1px);
   color: var(--kh-black);
 }
@@ -309,7 +309,7 @@
 }
 .kh-btn-secondary:hover {
   background: var(--kh-white-10);
-  border-color: var(--kh-orange-30);
+  border-color: var(--kh-teal-30);
   color: var(--kh-white);
 }
 .kh-hero-stats {
@@ -334,7 +334,7 @@
   left: 50%;
   transform: translateX(-50%);
   animation: kh-bounce 2s infinite;
-  color: var(--kh-orange-50);
+  color: var(--kh-teal-50);
 }
 @keyframes kh-bounce {
   0%,
@@ -407,7 +407,7 @@
   flex-direction: column;
 }
 .kh-card:hover .kh-card-inner {
-  border-color: var(--kh-orange-30);
+  border-color: var(--kh-teal-30);
 }
 .kh-card-icon {
   width: 56px;
@@ -433,7 +433,7 @@
   color: var(--kh-white);
 }
 .kh-card-subtitle {
-  color: var(--kh-orange);
+  color: var(--kh-teal);
   font-size: 0.875rem;
   margin-bottom: 16px;
 }
@@ -490,7 +490,7 @@
   background: var(--kh-gradient-dark);
 }
 .kh-card:hover .kh-card-cta {
-  box-shadow: 0 8px 24px var(--kh-orange-20);
+  box-shadow: 0 8px 24px var(--kh-teal-20);
 }
 
 /* ========== Networks ========== */
@@ -504,7 +504,7 @@
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(183, 0, 1, 0.05),
+    rgba(10, 102, 84, 0.05),
     transparent
   );
   pointer-events: none;
@@ -537,7 +537,7 @@
   color: var(--kh-gray-500);
 }
 .kh-th-3 {
-  color: var(--kh-orange);
+  color: var(--kh-teal);
 }
 .kh-table-row {
   display: grid;
@@ -565,7 +565,7 @@
   font-size: 0.875rem;
 }
 .kh-td-3 a {
-  color: var(--kh-orange);
+  color: var(--kh-teal);
   transition: opacity 0.2s;
 }
 .kh-td-3 a:hover {
@@ -581,10 +581,10 @@
   border-radius: 12px;
   background: linear-gradient(
     135deg,
-    rgba(183, 0, 1, 0.1),
-    rgba(255, 142, 2, 0.1)
+    rgba(10, 102, 84, 0.1),
+    rgba(26, 188, 156, 0.1)
   );
-  border: 1px solid var(--kh-red-20);
+  border: 1px solid var(--kh-teal-d-20);
   display: flex;
   gap: 16px;
 }
@@ -592,16 +592,16 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: var(--kh-red-20);
+  background: var(--kh-teal-d-20);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--kh-red);
+  color: var(--kh-teal-dark);
 }
 .kh-note-title {
   font-weight: 600;
-  color: #f87171;
+  color: #5eead4;
   margin-bottom: 8px;
 }
 .kh-note-text {
@@ -741,7 +741,7 @@
   color: var(--kh-white);
 }
 .kh-footer-logo-text span {
-  color: var(--kh-orange);
+  color: var(--kh-teal);
 }
 .kh-footer-links {
   display: flex;
@@ -754,7 +754,7 @@
   transition: color 0.2s;
 }
 .kh-footer-links a:hover {
-  color: var(--kh-orange);
+  color: var(--kh-teal);
 }
 .kh-footer-copy {
   font-size: 0.875rem;
