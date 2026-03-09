@@ -87,7 +87,7 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
-          label: "Guide",
+          label: "Documentation",
         },
         {
           href: "https://github.com/tranquanghuy7198/kontraxhub-doc",
@@ -135,7 +135,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} KontraxHub, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

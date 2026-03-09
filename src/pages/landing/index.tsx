@@ -221,7 +221,7 @@ export default function Landing() {
               Open {PRODUCT_NAME}
               <ArrowRight size={20} />
             </a>
-            <a href="/docs/intro" className="kh-btn-secondary">
+            <a href="/kontraxhub-doc/docs/intro" className="kh-btn-secondary">
               Read the Docs
             </a>
           </div>
@@ -358,7 +358,7 @@ export default function Landing() {
                   <Rocket size={20} />
                   Open {PRODUCT_NAME}
                 </a>
-                <a href="/docs/intro" className="kh-btn-ghost">
+                <a href="/kontraxhub-doc/docs/intro" className="kh-btn-ghost">
                   Read the Docs
                   <ArrowRight size={20} />
                 </a>
