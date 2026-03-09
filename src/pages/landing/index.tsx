@@ -18,48 +18,7 @@ import {
 import "./landing.css";
 import { pageLink, PRODUCT_NAME } from "@site/src/constants";
 import Logo from "@site/src/components/logo";
-
-const KontraxLogo = ({ className = "w-6 h-6" }: { className?: string }) => (
-  <svg viewBox="0 0 40 40" className={className} fill="currentColor">
-    <circle cx="8" cy="20" r="4" />
-    <circle cx="20" cy="8" r="3" />
-    <circle cx="20" cy="20" r="5" />
-    <circle cx="32" cy="14" r="3" />
-    <circle cx="32" cy="26" r="3" />
-    <line
-      x1="11"
-      y1="18"
-      x2="16"
-      y2="12"
-      stroke="currentColor"
-      strokeWidth="2.5"
-    />
-    <line
-      x1="12"
-      y1="20"
-      x2="15"
-      y2="20"
-      stroke="currentColor"
-      strokeWidth="2.5"
-    />
-    <line
-      x1="25"
-      y1="18"
-      x2="29"
-      y2="15"
-      stroke="currentColor"
-      strokeWidth="2.5"
-    />
-    <line
-      x1="25"
-      y1="22"
-      x2="29"
-      y2="25"
-      stroke="currentColor"
-      strokeWidth="2.5"
-    />
-  </svg>
-);
+import { NetworkOrbit } from "@site/src/components/network-orbit";
 
 const resources = [
   {
@@ -298,40 +257,53 @@ export default function Landing() {
               Pick your network and follow the setup guide to get started
             </p>
           </div>
-          <div className="kh-table-wrapper">
-            <div className="kh-table-head">
-              <span className="kh-th-1">Network</span>
-              <span className="kh-th-2">Status</span>
-              <span className="kh-th-3">Documentation</span>
-            </div>
-            <div className="kh-table-body">
-              {networks.map((n) => (
-                <div className="kh-table-row" key={n.name}>
-                  <span className="kh-td-1">{n.name}</span>
-                  <span className="kh-td-2">{n.status}</span>
-                  <span className="kh-td-3">
-                    {n.docs && n.docs !== "#" ? (
-                      <a href={n.docs}>Setup Guide →</a>
-                    ) : n.docs === "#" ? (
-                      <a href="#">Setup Guide →</a>
-                    ) : (
-                      <span className="kh-td-soon">Coming soon</span>
-                    )}
-                  </span>
+
+          <div className="kh-networks-layout">
+            {/* Left: table + note */}
+            <div className="kh-networks-table-col">
+              <div className="kh-table-wrapper">
+                <div className="kh-table-head">
+                  <span className="kh-th-1">Network</span>
+                  <span className="kh-th-2">Status</span>
+                  <span className="kh-th-3">Documentation</span>
                 </div>
-              ))}
+                <div className="kh-table-body">
+                  {networks.map((n) => (
+                    <div className="kh-table-row" key={n.name}>
+                      <span className="kh-td-1">{n.name}</span>
+                      <span className="kh-td-2">{n.status}</span>
+                      <span className="kh-td-3">
+                        {n.docs && n.docs !== "#" ? (
+                          <a href={n.docs}>Setup Guide →</a>
+                        ) : n.docs === "#" ? (
+                          <a href="#">Setup Guide →</a>
+                        ) : (
+                          <span className="kh-td-soon">Coming soon</span>
+                        )}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="kh-note">
+                <div className="kh-note-icon">
+                  <Star size={20} />
+                </div>
+                <div>
+                  <p className="kh-note-title">More networks on the way</p>
+                  <p className="kh-note-text">
+                    {PRODUCT_NAME} is actively expanding network support.
+                    Additional networks are in progress. Watch the documentation
+                    for updates.
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="kh-note">
-            <div className="kh-note-icon">
-              <Star size={20} />
-            </div>
-            <div>
-              <p className="kh-note-title">More networks on the way</p>
-              <p className="kh-note-text">
-                {PRODUCT_NAME} is actively expanding network support. Additional
-                networks are in progress. Watch the documentation for updates.
-              </p>
+
+            {/* Right: orbiting network icons */}
+            <div className="kh-networks-orbit-col">
+              <NetworkOrbit />
             </div>
           </div>
         </div>
