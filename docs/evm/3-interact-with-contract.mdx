@@ -3,13 +3,12 @@ sidebar_position: 3
 ---
 
 import PageLink from "@site/src/components/page-link";
-import ProductLabel from "@site/src/components/product-label";
 
 # Interact with EVM Contract
 
 ## Add Your Contract
 
-To begin working with your EVM contract in <ProductLabel />, choose one of the following methods:
+To begin working with your EVM contract in <PageLink id="home" />, choose one of the following methods:
 
 ### Method 1: Deploy and Interact
 
@@ -33,7 +32,7 @@ If your smart contract follows the [OpenZeppelin Upgradeable Proxy Pattern](http
 - **Proxy contract** — the address that users and applications interact with.
 - **Implementation contract** — the contract that contains the actual logic and functions.
 
-When interacting with an upgradeable contract in <ProductLabel />, ensure that you:
+When interacting with an upgradeable contract in <PageLink id="home" />, ensure that you:
 
 - Use the **ABI of the implementation contract**, since it defines the available functions and events.
 - Use the **address of the proxy contract**, since all external calls are routed through the proxy to the current implementation.

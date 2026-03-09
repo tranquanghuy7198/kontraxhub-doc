@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-import ProductLabel from "@site/src/components/product-label";
+import PageLink from "@site/src/components/page-link";
 
 # Iframe
 
-Integrate <ProductLabel /> directly into your website using our secure iframe embed — allowing your users to interact with your contracts without leaving your site.
+Integrate <PageLink id="home" /> directly into your website using our secure iframe embed — allowing your users to interact with your contracts without leaving your site.
 
 ## 🔧 Step-by-Step Integration
 
@@ -14,7 +14,7 @@ Integrate <ProductLabel /> directly into your website using our secure iframe em
 
 Before embedding anything, make sure:
 
-- You have **added your smart contracts** to <ProductLabel />
+- You have **added your smart contracts** to <PageLink id="home" />
 - You **carefully verify** that all contract information is correct (network, address, ABI, permissions, etc.)
 
 :::warning Important
@@ -25,7 +25,7 @@ Incorrect contract information may cause failed interactions or unexpected behav
 
 Once your contract is ready:
 
-1. Open your contract page on <ProductLabel />
+1. Open your contract page on <PageLink id="home" />
 2. Click **`Share`**
 3. Click **`Copy iframe`**
 4. Paste the iframe code into your website
@@ -51,7 +51,7 @@ To ensure the best user experience:
 
 ### ✔ Control the iframe width
 
-The <ProductLabel /> interface contains forms and action panels that should not be too wide. We recommend constraining the iframe size:
+The <PageLink id="home" /> interface contains forms and action panels that should not be too wide. We recommend constraining the iframe size:
 
 ```html
 <iframe
@@ -71,7 +71,7 @@ These suggestions keep the UI readable and consistent with wallet-style interfac
 
 ## 🔐 Security & Trust Notes
 
-- <ProductLabel /> never accesses private keys
+- <PageLink id="home" /> never accesses private keys
 - Wallet connections are handled entirely by the user's wallet provider
 - All contract interactions happen on-chain from the user’s wallet
 
