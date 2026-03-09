@@ -19,7 +19,7 @@ export const PAGES: Record<string, PageMetadata> = {
   },
 };
 
-export const pageLink = (id: string, params?: Record<string, string>) => {
+export const pageLink = (id: string, params: Record<string, string> = {}) => {
   let endpoint = PAGES[id].endpoint;
   for (const [key, value] of Object.entries(params))
     endpoint = endpoint.replace(`:${key}`, value);

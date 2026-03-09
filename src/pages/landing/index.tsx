@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import "./landing.css";
+import { pageLink } from "@site/src/constants";
 
 const KontraxLogo = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg viewBox="0 0 40 40" className={className} fill="currentColor">
@@ -68,7 +69,7 @@ const resources = [
     description:
       "Connect your wallet, upload your bytecode, and interact with your smart contract — no CLI required.",
     cta: "Get Started",
-    link: "https://kontraxhub.pages.dev",
+    link: pageLink("contracts"),
     glowClass: "kh-card-glow-orange",
     iconClass: "kh-card-icon-orange",
     ctaClass: "kh-card-cta-orange",
@@ -83,7 +84,7 @@ const resources = [
     description:
       "Browse contract ABIs, call functions interactively, and inspect state in real time across multiple networks.",
     cta: "Open Explorer",
-    link: "https://kontraxhub.pages.dev/contract-explorer",
+    link: pageLink("contracts"),
     glowClass: "kh-card-glow-red",
     iconClass: "kh-card-icon-red",
     ctaClass: "kh-card-cta-red",
@@ -98,7 +99,7 @@ const resources = [
     description:
       "Group contracts into workspaces for cleaner project management. Switch between networks without losing context.",
     cta: "View Workspaces",
-    link: "https://kontraxhub.pages.dev/workspaces",
+    link: pageLink("workspaces"),
     glowClass: "kh-card-glow-orange",
     iconClass: "kh-card-icon-orange",
     ctaClass: "kh-card-cta-orange",
@@ -178,7 +179,7 @@ export default function Landing() {
             <a href="#networks">Networks</a>
             <a href="#cta">Resources</a>
             <a
-              href="https://kontraxhub.pages.dev"
+              href={pageLink("home")}
               target="_blank"
               rel="noopener noreferrer"
               className="kh-nav-cta"
@@ -212,7 +213,7 @@ export default function Landing() {
 
           <div className="kh-hero-actions">
             <a
-              href="https://kontraxhub.pages.dev"
+              href={pageLink("home")}
               target="_blank"
               rel="noopener noreferrer"
               className="kh-btn-primary"
@@ -349,7 +350,7 @@ export default function Landing() {
               </p>
               <div className="kh-cta-buttons">
                 <a
-                  href="https://kontraxhub.pages.dev"
+                  href={pageLink("home")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="kh-btn-dark"
@@ -381,7 +382,7 @@ export default function Landing() {
           <div className="kh-footer-links">
             <a href="/docs/intro">Docs</a>
             <a
-              href="https://kontraxhub.pages.dev"
+              href={pageLink("home")}
               target="_blank"
               rel="noopener noreferrer"
             >
