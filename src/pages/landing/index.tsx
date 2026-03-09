@@ -109,6 +109,11 @@ const resources = [
 ];
 
 const networks = [
+  { name: "EVM", status: "Supported", docs: null },
+  { name: "Solana (Anchor)", status: "Supported", docs: "#" },
+  { name: "Sui", status: "Supported", docs: "#" },
+  { name: "Aptos", status: "Supported", docs: "#" },
+  { name: "Cosmos", status: "Supported", docs: "#" },
   {
     name: "NEAR",
     status: "Supported",
@@ -119,8 +124,8 @@ const networks = [
     status: "Supported",
     docs: "/docs/stellar/prepare-stellar-project",
   },
-  { name: "Solana (Anchor)", status: "Supported", docs: "#" },
-  { name: "EVM", status: "Coming Soon", docs: null },
+  { name: "Polkadot", status: "Coming Soon", docs: "#" },
+  { name: "Ton", status: "Coming Soon", docs: "#" },
 ];
 
 const highlights = [
@@ -328,9 +333,8 @@ export default function Landing() {
             <div>
               <p className="kh-note-title">More networks on the way</p>
               <p className="kh-note-text">
-                {PRODUCT_NAME} is actively expanding network support.
-                EVM-compatible chains and additional networks are in progress.
-                Watch the documentation for updates.
+                {PRODUCT_NAME} is actively expanding network support. Additional
+                networks are in progress. Watch the documentation for updates.
               </p>
             </div>
           </div>
