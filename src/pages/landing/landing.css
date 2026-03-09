@@ -520,6 +520,44 @@
   border: 1px solid var(--kh-white-10);
   overflow: hidden;
 }
+.kh-table-body {
+  max-height: calc(5 * 53px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--kh-teal-30) transparent;
+}
+.kh-table-body::-webkit-scrollbar {
+  width: 6px;
+}
+.kh-table-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.kh-table-body::-webkit-scrollbar-thumb {
+  background: var(--kh-teal-30);
+  border-radius: 999px;
+}
+.kh-table-body::-webkit-scrollbar-thumb:hover {
+  background: var(--kh-teal-50);
+}
+.kh-table-body {
+  max-height: calc(5 * 53px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--kh-teal-30) transparent;
+}
+.kh-table-body::-webkit-scrollbar {
+  width: 6px;
+}
+.kh-table-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.kh-table-body::-webkit-scrollbar-thumb {
+  background: var(--kh-teal-30);
+  border-radius: 999px;
+}
+.kh-table-body::-webkit-scrollbar-thumb:hover {
+  background: var(--kh-teal-50);
+}
 .kh-table-head {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1.5fr;

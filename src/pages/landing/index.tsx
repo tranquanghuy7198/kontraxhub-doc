@@ -109,7 +109,7 @@ const resources = [
 ];
 
 const networks = [
-  { name: "EVM", status: "Supported", docs: null },
+  { name: "EVM", status: "Supported", docs: "#" },
   { name: "Solana (Anchor)", status: "Supported", docs: "#" },
   { name: "Sui", status: "Supported", docs: "#" },
   { name: "Aptos", status: "Supported", docs: "#" },
@@ -124,8 +124,8 @@ const networks = [
     status: "Supported",
     docs: "/docs/stellar/prepare-stellar-project",
   },
-  { name: "Polkadot", status: "Coming Soon", docs: "#" },
-  { name: "Ton", status: "Coming Soon", docs: "#" },
+  { name: "Polkadot", status: "Coming Soon", docs: null },
+  { name: "Ton", status: "Coming Soon", docs: null },
 ];
 
 const highlights = [
@@ -310,21 +310,23 @@ export default function Landing() {
               <span className="kh-th-2">Status</span>
               <span className="kh-th-3">Documentation</span>
             </div>
-            {networks.map((n) => (
-              <div className="kh-table-row" key={n.name}>
-                <span className="kh-td-1">{n.name}</span>
-                <span className="kh-td-2">{n.status}</span>
-                <span className="kh-td-3">
-                  {n.docs && n.docs !== "#" ? (
-                    <a href={n.docs}>Setup Guide →</a>
-                  ) : n.docs === "#" ? (
-                    <a href="#">Setup Guide →</a>
-                  ) : (
-                    <span className="kh-td-soon">Coming soon</span>
-                  )}
-                </span>
-              </div>
-            ))}
+            <div className="kh-table-body">
+              {networks.map((n) => (
+                <div className="kh-table-row" key={n.name}>
+                  <span className="kh-td-1">{n.name}</span>
+                  <span className="kh-td-2">{n.status}</span>
+                  <span className="kh-td-3">
+                    {n.docs && n.docs !== "#" ? (
+                      <a href={n.docs}>Setup Guide →</a>
+                    ) : n.docs === "#" ? (
+                      <a href="#">Setup Guide →</a>
+                    ) : (
+                      <span className="kh-td-soon">Coming soon</span>
+                    )}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="kh-note">
             <div className="kh-note-icon">
