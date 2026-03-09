@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "nasalization";
+  src: url("./nasalization.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .profile-logo-container {
   display: flex;
   flex-direction: row;
@@ -25,14 +33,16 @@
   font-size: 20px;
   font-weight: bold;
   color: #1abc9c;
+  line-height: 1.3;
 }
 
 .logo-title-right {
-  padding: 1px 3px 1px 3px;
+  padding: 0px 5px 0px 5px;
   border-radius: 4px;
   background-color: #1abc9c;
   font-family: "nasalization";
   font-size: 20px;
   font-weight: bold;
-  mix-blend-mode: difference;
+  color: rgba(0, 0, 0);
+  line-height: 1.3;
 }
