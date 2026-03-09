@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import "./landing.css";
 import { pageLink, PRODUCT_NAME } from "@site/src/constants";
+import Logo from "@site/src/components/logo";
 
 const KontraxLogo = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg viewBox="0 0 40 40" className={className} fill="currentColor">
@@ -171,14 +172,7 @@ export default function Landing() {
       {/* Nav */}
       <nav className="kh-nav">
         <div className="kh-nav-inner">
-          <div className="kh-nav-logo">
-            <div className="kh-nav-logo-icon">
-              <KontraxLogo className="w-6 h-6" />
-            </div>
-            <span className="kh-nav-logo-text">
-              Kontrax<span>Hub</span>
-            </span>
-          </div>
+          <Logo />
           <div className="kh-nav-links">
             <a href="#start">Get Started</a>
             <a href="#networks">Networks</a>
@@ -377,13 +371,8 @@ export default function Landing() {
       {/* Footer */}
       <footer className="kh-footer">
         <div className="kh-footer-inner">
-          <div className="kh-footer-logo">
-            <div className="kh-footer-logo-icon">
-              <KontraxLogo className="w-5 h-5" />
-            </div>
-            <span className="kh-footer-logo-text">
-              Kontrax<span>Hub</span>
-            </span>
+          <div className="footer-logo">
+            <Logo />
           </div>
           <div className="kh-footer-links">
             <a href="/docs/intro">Docs</a>

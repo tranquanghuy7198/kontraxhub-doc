@@ -1,0 +1,38 @@
+.profile-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.profile-logo {
+  max-height: 25px;
+  max-width: 25px;
+}
+
+.logo-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+}
+
+.logo-title-left {
+  font-family: "nasalization";
+  font-size: 20px;
+  font-weight: bold;
+  color: #1abc9c;
+}
+
+.logo-title-right {
+  padding: 1px 3px 1px 3px;
+  border-radius: 4px;
+  background-color: #1abc9c;
+  font-family: "nasalization";
+  font-size: 20px;
+  font-weight: bold;
+  mix-blend-mode: difference;
+}
