@@ -16,7 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import "./landing.css";
-import { pageLink } from "@site/src/constants";
+import { pageLink, PRODUCT_NAME } from "@site/src/constants";
 
 const KontraxLogo = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg viewBox="0 0 40 40" className={className} fill="currentColor">
@@ -206,9 +206,9 @@ export default function Landing() {
           </h1>
 
           <p className="kh-hero-subtitle">
-            KontraxHub gives you a unified explorer to deploy, browse, and call
-            smart contracts across multiple blockchain networks — all from your
-            browser.
+            {PRODUCT_NAME} gives you a unified explorer to deploy, browse, and
+            call smart contracts across multiple blockchain networks — all from
+            your browser.
           </p>
 
           <div className="kh-hero-actions">
@@ -218,7 +218,7 @@ export default function Landing() {
               rel="noopener noreferrer"
               className="kh-btn-primary"
             >
-              Open KontraxHub
+              Open {PRODUCT_NAME}
               <ArrowRight size={20} />
             </a>
             <a href="/docs/intro" className="kh-btn-secondary">
@@ -328,9 +328,9 @@ export default function Landing() {
             <div>
               <p className="kh-note-title">More networks on the way</p>
               <p className="kh-note-text">
-                KontraxHub is actively expanding network support. EVM-compatible
-                chains and additional networks are in progress. Watch the
-                documentation for updates.
+                {PRODUCT_NAME} is actively expanding network support.
+                EVM-compatible chains and additional networks are in progress.
+                Watch the documentation for updates.
               </p>
             </div>
           </div>
@@ -345,8 +345,8 @@ export default function Landing() {
             <div className="kh-cta-content">
               <h2 className="kh-cta-title">Ready to start building?</h2>
               <p className="kh-cta-subtitle">
-                Open KontraxHub in your browser and connect your first contract
-                in minutes — no installation required.
+                Open {PRODUCT_NAME} in your browser and connect your first
+                contract in minutes — no installation required.
               </p>
               <div className="kh-cta-buttons">
                 <a
@@ -356,7 +356,7 @@ export default function Landing() {
                   className="kh-btn-dark"
                 >
                   <Rocket size={20} />
-                  Open KontraxHub
+                  Open {PRODUCT_NAME}
                 </a>
                 <a href="/docs/intro" className="kh-btn-ghost">
                   Read the Docs
@@ -400,7 +400,7 @@ export default function Landing() {
             </a>
           </div>
           <p className="kh-footer-copy">
-            © 2026 KontraxHub. All rights reserved.
+            © 2026 {PRODUCT_NAME}. All rights reserved.
           </p>
         </div>
       </footer>
