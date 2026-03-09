@@ -375,7 +375,7 @@ export default function Landing() {
             <Logo />
           </div>
           <div className="kh-footer-links">
-            <a href="/docs/intro">Docs</a>
+            <a href="/kontraxhub-doc/docs/intro">Docs</a>
             <a
               href={pageLink("home")}
               target="_blank"
