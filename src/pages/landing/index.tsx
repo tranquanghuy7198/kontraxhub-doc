@@ -373,6 +373,43 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="kh-footer">
+        <div className="kh-footer-inner">
+          <div className="kh-footer-logo">
+            <div className="kh-footer-logo-icon">
+              <KontraxLogo className="w-5 h-5" />
+            </div>
+            <span className="kh-footer-logo-text">
+              Kontrax<span>Hub</span>
+            </span>
+          </div>
+          <div className="kh-footer-links">
+            <a href="/docs/intro">Docs</a>
+            <a
+              href={pageLink("home")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              App
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={16} />
+            </a>
+            <a href="mailto:hello@kontraxhub.dev">
+              <MessageCircle size={16} />
+            </a>
+          </div>
+          <p className="kh-footer-copy">
+            © 2026 {PRODUCT_NAME}. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
