@@ -5,9 +5,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "My Site",
+  title: "KontraxHub",
   tagline: "Dinosaurs are cool",
-  favicon: "img/favicon.ico",
+  favicon: "img/logo.png",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -79,8 +79,8 @@ const config: Config = {
     navbar: {
       title: "KontraxHub",
       logo: {
-        alt: "My Site Logo",
-        src: "img/logo.svg",
+        alt: "KontraxHub",
+        src: "img/logo.png",
       },
       items: [
         {
