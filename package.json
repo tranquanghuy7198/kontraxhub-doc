@@ -18,7 +18,9 @@
     "@docusaurus/core": "3.9.1",
     "@docusaurus/preset-classic": "3.9.1",
     "@mdx-js/react": "^3.0.0",
+    "@web3icons/react": "^4.1.17",
     "clsx": "^2.0.0",
+    "lucide-react": "^0.577.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

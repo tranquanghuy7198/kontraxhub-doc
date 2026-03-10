@@ -1,155 +1,15 @@
+import { useEffect, useRef, useState, useCallback } from "react";
 import {
-  useEffect,
-  useRef,
-  useState,
-  useCallback,
-  type ReactElement,
-} from "react";
+  NetworkEthereum,
+  NetworkSolana,
+  NetworkSui,
+  NetworkAptos,
+  NetworkStellar,
+  NetworkNearProtocol,
+  NetworkCosmos,
+} from "@web3icons/react";
 import "./network-orbit.css";
 
-// ─── SVG icons per network ───────────────────────────────────────────────────
-const ICONS: Record<string, ReactElement> = {
-  EVM: (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-    >
-      <path d="M16 4L4 16l12 7 12-7L16 4z" fill="#627EEA" opacity="0.85" />
-      <path d="M16 4v10.5L4 16 16 4z" fill="#8EA4F1" />
-      <path d="M16 14.5L4 16l12 7V14.5z" fill="#3D5CE0" />
-      <path d="M16 14.5l12 1.5-12 7V14.5z" fill="#627EEA" />
-      <path d="M16 4v10.5l12 1.5L16 4z" fill="#B0BFFF" />
-    </svg>
-  ),
-  Solana: (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-    >
-      <defs>
-        <linearGradient id="sol-g" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#9945FF" />
-          <stop offset="100%" stopColor="#14F195" />
-        </linearGradient>
-      </defs>
-      <path d="M5 22.5h18.5l2.5-3H7.5L5 22.5z" fill="url(#sol-g)" />
-      <path d="M5 16h18.5l2.5-3H7.5L5 16z" fill="url(#sol-g)" />
-      <path d="M7.5 9.5h18.5L23.5 6.5H5L7.5 9.5z" fill="url(#sol-g)" />
-    </svg>
-  ),
-  Sui: (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-    >
-      <path
-        d="M16 3C9.4 3 4 8.4 4 15c0 4.5 2.4 8.4 6 10.6V22c0-3.3 2.7-6 6-6s6 2.7 6 6v3.6C25.6 23.4 28 19.5 28 15 28 8.4 22.6 3 16 3z"
-        fill="#6FBCF0"
-      />
-      <circle cx="16" cy="11" r="3.5" fill="white" />
-    </svg>
-  ),
-  Aptos: (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-    >
-      <circle cx="16" cy="16" r="13" fill="#00BFA5" opacity="0.15" />
-      <circle cx="16" cy="16" r="13" stroke="#00BFA5" strokeWidth="1.5" />
-      <rect x="9" y="11" width="14" height="3" rx="1.5" fill="#00BFA5" />
-      <rect x="9" y="17" width="10" height="3" rx="1.5" fill="#00BFA5" />
-    </svg>
-  ),
-  Cosmos: (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-    >
-      <circle cx="16" cy="16" r="3.5" fill="#5064FB" />
-      <ellipse
-        cx="16"
-        cy="16"
-        rx="13"
-        ry="5.5"
-        stroke="#5064FB"
-        strokeWidth="1.5"
-        fill="none"
-      />
-      <ellipse
-        cx="16"
-        cy="16"
-        rx="13"
-        ry="5.5"
-        stroke="#5064FB"
-        strokeWidth="1.5"
-        fill="none"
-        transform="rotate(60 16 16)"
-      />
-      <ellipse
-        cx="16"
-        cy="16"
-        rx="13"
-        ry="5.5"
-        stroke="#5064FB"
-        strokeWidth="1.5"
-        fill="none"
-        transform="rotate(120 16 16)"
-      />
-    </svg>
-  ),
-  NEAR: (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-    >
-      <path d="M7 7h4.5l6 10V7H22v18h-4.5l-6-10v10H7V7z" fill="#00C08B" />
-    </svg>
-  ),
-  Stellar: (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-    >
-      <defs>
-        <linearGradient id="xlm-g" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#7B68EE" />
-          <stop offset="100%" stopColor="#C4B5FD" />
-        </linearGradient>
-      </defs>
-      <path d="M25 9l-2.8 1.3L6 18.5l2.8-1.3L25 9z" fill="url(#xlm-g)" />
-      <path d="M6 12.5l2.8 1.3L25 22.5 22.2 21.2 6 12.5z" fill="url(#xlm-g)" />
-      <circle cx="16" cy="16" r="2.5" fill="url(#xlm-g)" />
-      <path
-        d="M11 7l1.2 2.4 2.4 1.2-2.4 1.2L11 14l-1.2-2.2L7.4 10.6l2.4-1.2z"
-        fill="#C4B5FD"
-        opacity="0.7"
-      />
-    </svg>
-  ),
-};
-
-// ─── Orbit configuration ─────────────────────────────────────────────────────
 type OrbitItem = {
   name: string;
   orbitRadius: number;
@@ -158,6 +18,7 @@ type OrbitItem = {
   size: number;
   glowColor: string;
   ring: "inner" | "outer";
+  icon: any;
 };
 
 const ORBIT_CONFIG: OrbitItem[] = [
@@ -170,6 +31,7 @@ const ORBIT_CONFIG: OrbitItem[] = [
     size: 44,
     glowColor: "#627EEA",
     ring: "inner",
+    icon: NetworkEthereum,
   },
   {
     name: "Solana",
@@ -179,6 +41,7 @@ const ORBIT_CONFIG: OrbitItem[] = [
     size: 42,
     glowColor: "#14F195",
     ring: "inner",
+    icon: NetworkSolana,
   },
   {
     name: "Sui",
@@ -188,6 +51,7 @@ const ORBIT_CONFIG: OrbitItem[] = [
     size: 40,
     glowColor: "#6FBCF0",
     ring: "inner",
+    icon: NetworkSui,
   },
   // Outer ring — 4 items, counter-clockwise
   {
@@ -198,6 +62,7 @@ const ORBIT_CONFIG: OrbitItem[] = [
     size: 38,
     glowColor: "#00BFA5",
     ring: "outer",
+    icon: NetworkAptos,
   },
   {
     name: "Cosmos",
@@ -207,6 +72,7 @@ const ORBIT_CONFIG: OrbitItem[] = [
     size: 38,
     glowColor: "#5064FB",
     ring: "outer",
+    icon: NetworkCosmos,
   },
   {
     name: "NEAR",
@@ -216,6 +82,7 @@ const ORBIT_CONFIG: OrbitItem[] = [
     size: 38,
     glowColor: "#00C08B",
     ring: "outer",
+    icon: NetworkNearProtocol,
   },
   {
     name: "Stellar",
@@ -225,10 +92,10 @@ const ORBIT_CONFIG: OrbitItem[] = [
     size: 36,
     glowColor: "#9B8FFF",
     ring: "outer",
+    icon: NetworkStellar,
   },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
 export function NetworkOrbit() {
   const animRef = useRef<number>(0);
   const timeRef = useRef<number>(0);
@@ -309,6 +176,7 @@ export function NetworkOrbit() {
       {/* Orbiting icons */}
       {ORBIT_CONFIG.map((item, i) => {
         const isHovered = hovered === item.name;
+        const Icon = item.icon;
         return (
           <div
             key={item.name}
@@ -327,7 +195,9 @@ export function NetworkOrbit() {
             onMouseEnter={() => setHovered(item.name)}
             onMouseLeave={() => setHovered(null)}
           >
-            <div className="no-icon-inner">{ICONS[item.name]}</div>
+            <div className="no-icon-inner">
+              <Icon variant="branded" />
+            </div>
 
             {/* Tooltip label */}
             {isHovered && <div className="no-tooltip">{item.name}</div>}
