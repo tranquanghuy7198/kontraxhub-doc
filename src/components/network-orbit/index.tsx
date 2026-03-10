@@ -15,98 +15,96 @@ type OrbitItem = {
   name: string;
   orbitRadius: number;
   speed: number;
-  phaseShift: number;
   size: number;
   glowColor: string;
-  ring: "inner" | "outer";
   icon: any;
 };
 
 const ORBIT_CONFIG: OrbitItem[] = [
-  // Inner ring — 3 items, clockwise
+  // Inner ring — 4 items, clockwise
   {
     name: "EVM",
     orbitRadius: 125,
     speed: 0.45,
-    phaseShift: 0,
-    size: 44,
+    size: 42,
     glowColor: "#627EEA",
-    ring: "inner",
     icon: NetworkEthereum,
   },
   {
     name: "Solana",
     orbitRadius: 125,
     speed: 0.45,
-    phaseShift: (Math.PI * 2) / 3,
     size: 42,
     glowColor: "#14F195",
-    ring: "inner",
     icon: NetworkSolana,
   },
+  // Outer ring — 5 items, counter-clockwise
   {
     name: "Sui",
-    orbitRadius: 125,
-    speed: 0.45,
-    phaseShift: (Math.PI * 4) / 3,
-    size: 40,
+    orbitRadius: 210,
+    speed: -0.28,
+    size: 42,
     glowColor: "#6FBCF0",
-    ring: "inner",
     icon: NetworkSui,
   },
-  // Outer ring — 4 items, counter-clockwise
   {
     name: "Aptos",
     orbitRadius: 210,
     speed: -0.28,
-    phaseShift: 0,
-    size: 38,
+    size: 42,
     glowColor: "#00BFA5",
-    ring: "outer",
     icon: NetworkAptos,
   },
   {
     name: "Cosmos",
     orbitRadius: 210,
     speed: -0.28,
-    phaseShift: Math.PI / 2,
-    size: 38,
+    size: 42,
     glowColor: "#5064FB",
-    ring: "outer",
     icon: NetworkCosmos,
   },
   {
     name: "NEAR",
     orbitRadius: 210,
     speed: -0.28,
-    phaseShift: Math.PI,
-    size: 38,
+    size: 42,
     glowColor: "#00C08B",
-    ring: "outer",
     icon: NetworkNearProtocol,
   },
   {
     name: "Stellar",
     orbitRadius: 210,
     speed: -0.28,
-    phaseShift: Math.PI * 1.5,
-    size: 36,
+    size: 42,
     glowColor: "#9B8FFF",
-    ring: "outer",
     icon: NetworkStellar,
   },
 ];
+
+interface Position {
+  x: number;
+  y: number;
+}
+
+const realtimePositions = (t: number): Position[] =>
+  ORBIT_CONFIG.map((item, index) => {
+    const numSameOrbit = ORBIT_CONFIG.filter(
+      (i) => i.orbitRadius === item.orbitRadius,
+    ).length;
+    const phaseShift = (2 * Math.PI * index) / numSameOrbit;
+    return {
+      x: Math.cos(item.speed * t + phaseShift) * item.orbitRadius,
+      y: Math.sin(item.speed * t + phaseShift) * item.orbitRadius,
+    };
+  });
 
 export function NetworkOrbit() {
   const animRef = useRef<number>(0);
   const timeRef = useRef<number>(0);
   const lastRef = useRef<number>(0);
   const pausedRef = useRef<boolean>(false);
-  const [positions, setPositions] = useState(() =>
-    ORBIT_CONFIG.map((item) => ({
-      x: Math.cos(item.phaseShift) * item.orbitRadius,
-      y: Math.sin(item.phaseShift) * item.orbitRadius,
-    })),
+  const [positions, setPositions] = useState<Position[]>(() =>
+    realtimePositions(0),
   );
   const [hovered, setHovered] = useState<string | null>(null);
 
@@ -120,12 +118,7 @@ export function NetworkOrbit() {
         timeRef.current += delta;
       }
       const t = timeRef.current;
-      setPositions(
-        ORBIT_CONFIG.map((item) => ({
-          x: Math.cos(item.speed * t + item.phaseShift) * item.orbitRadius,
-          y: Math.sin(item.speed * t + item.phaseShift) * item.orbitRadius,
-        })),
-      );
+      setPositions(realtimePositions(t));
       animRef.current = requestAnimationFrame(tick);
     };
 
