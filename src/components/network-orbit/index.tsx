@@ -36,63 +36,63 @@ const ORBIT_CONFIG: OrbitItem[] = [
     name: "EVM",
     size: 42,
     glowColor: "#627EEA",
-    icon: NetworkEthereum,
+    icon: <NetworkEthereum variant="branded" />,
     trajectory: 0,
   },
   {
     name: "Solana",
     size: 42,
     glowColor: "#14F195",
-    icon: NetworkSolana,
+    icon: <NetworkSolana variant="branded" />,
     trajectory: 0,
   },
   {
     name: "Cosmos",
     size: 42,
-    glowColor: "#5064FB",
-    icon: NetworkCosmos,
+    glowColor: "#7B4FFF",
+    icon: <NetworkCosmos variant="mono" style={{ color: "#7B4FFF" }} />,
     trajectory: 0,
   },
   {
     name: "NEAR",
     size: 42,
     glowColor: "#00C08B",
-    icon: NetworkNearProtocol,
+    icon: <NetworkNearProtocol variant="branded" />,
     trajectory: 0,
   },
   {
     name: "Sui",
     size: 42,
     glowColor: "#6FBCF0",
-    icon: NetworkSui,
+    icon: <NetworkSui variant="branded" />,
     trajectory: 1,
   },
   {
     name: "Aptos",
     size: 42,
-    glowColor: "#00BFA5",
-    icon: NetworkAptos,
+    glowColor: "#2DD8A3",
+    icon: <NetworkAptos variant="mono" style={{ color: "#2DD8A3" }} />,
     trajectory: 1,
   },
   {
     name: "Stellar",
     size: 42,
-    glowColor: "#9B8FFF",
-    icon: NetworkStellar,
+    glowColor: "#14B6E7",
+    icon: <NetworkStellar variant="mono" style={{ color: "#14B6E7" }} />,
     trajectory: 1,
   },
   {
     name: "Polkadot",
     size: 42,
-    glowColor: "#FFB300",
-    icon: NetworkPolkadot,
+    glowColor: "#E6007A",
+    icon: <NetworkPolkadot variant="branded" />,
     trajectory: 1,
   },
   {
     name: "Ton",
     size: 42,
-    glowColor: "#FFB300",
-    icon: NetworkTon,
+    glowColor: "#0098EA",
+    icon: <NetworkTon variant="branded" />,
     trajectory: 1,
   },
 ];
@@ -175,7 +175,6 @@ export function NetworkOrbit() {
       {/* Planets */}
       {ORBIT_CONFIG.map((item, i) => {
         const isHovered = hovered === item.name;
-        const Icon = item.icon;
         return (
           <div
             key={item.name}
@@ -194,9 +193,7 @@ export function NetworkOrbit() {
             onMouseEnter={() => setHovered(item.name)}
             onMouseLeave={() => setHovered(null)}
           >
-            <div className="no-icon-inner">
-              <Icon variant="branded" />
-            </div>
+            <div className="no-icon-inner">{item.icon}</div>
             {isHovered && <div className="no-tooltip">{item.name}</div>}
           </div>
         );
