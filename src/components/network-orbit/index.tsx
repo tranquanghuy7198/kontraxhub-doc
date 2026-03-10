@@ -5,6 +5,7 @@ import {
   useCallback,
   type ReactElement,
 } from "react";
+import "./network-orbit.css";
 
 // ─── SVG icons per network ───────────────────────────────────────────────────
 const ICONS: Record<string, ReactElement> = {
