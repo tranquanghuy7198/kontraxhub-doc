@@ -11,10 +11,11 @@ import {
   NetworkTon,
 } from "@web3icons/react";
 import logo from "@site/static/img/logo.png";
+import { NetworkCluster } from "@site/src/constants";
 import "./network-orbit.css";
 
 type OrbitItem = {
-  name: string;
+  name: NetworkCluster;
   size: number;
   glowColor: string;
   icon: any;
@@ -33,63 +34,63 @@ const TRAJECTORIES: Trajectory[] = [
 
 const ORBIT_CONFIG: OrbitItem[] = [
   {
-    name: "EVM",
+    name: NetworkCluster.Evm,
     size: 42,
     glowColor: "#627EEA",
     icon: <NetworkEthereum variant="branded" />,
     trajectory: 0,
   },
   {
-    name: "Solana",
+    name: NetworkCluster.Solana,
     size: 42,
     glowColor: "#14F195",
     icon: <NetworkSolana variant="branded" />,
     trajectory: 0,
   },
   {
-    name: "Cosmos",
+    name: NetworkCluster.Cosmos,
     size: 42,
     glowColor: "#7B4FFF",
     icon: <NetworkCosmos variant="mono" style={{ color: "#7B4FFF" }} />,
     trajectory: 0,
   },
   {
-    name: "NEAR",
+    name: NetworkCluster.Near,
     size: 42,
     glowColor: "#00C08B",
     icon: <NetworkNearProtocol variant="branded" />,
     trajectory: 0,
   },
   {
-    name: "Sui",
+    name: NetworkCluster.Sui,
     size: 42,
     glowColor: "#6FBCF0",
     icon: <NetworkSui variant="branded" />,
     trajectory: 1,
   },
   {
-    name: "Aptos",
+    name: NetworkCluster.Aptos,
     size: 42,
     glowColor: "#2DD8A3",
     icon: <NetworkAptos variant="mono" style={{ color: "#2DD8A3" }} />,
     trajectory: 1,
   },
   {
-    name: "Stellar",
+    name: NetworkCluster.Stellar,
     size: 42,
     glowColor: "#14B6E7",
     icon: <NetworkStellar variant="mono" style={{ color: "#14B6E7" }} />,
     trajectory: 1,
   },
   {
-    name: "Polkadot",
+    name: NetworkCluster.Polkadot,
     size: 42,
     glowColor: "#E6007A",
     icon: <NetworkPolkadot variant="branded" />,
     trajectory: 1,
   },
   {
-    name: "Ton",
+    name: NetworkCluster.Ton,
     size: 42,
     glowColor: "#0098EA",
     icon: <NetworkTon variant="branded" />,

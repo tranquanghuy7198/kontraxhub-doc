@@ -20,6 +20,19 @@ export const PAGES: Record<string, PageMetadata> = {
   embed: { name: "Embed", endpoint: "/embed/:id" },
 };
 
+export enum NetworkCluster {
+  Evm = "evm",
+  Ronin = "ronin",
+  Solana = "solana",
+  Sui = "sui",
+  Aptos = "aptos",
+  Cosmos = "cosmos",
+  Stellar = "stellar",
+  Near = "near",
+  Polkadot = "polkadot",
+  Ton = "ton",
+}
+
 export const pageLink = (
   id: string,
   pathParams: Record<string, string> = {},
