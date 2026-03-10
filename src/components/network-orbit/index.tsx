@@ -8,6 +8,7 @@ import {
   NetworkNearProtocol,
   NetworkCosmos,
 } from "@web3icons/react";
+import logo from "@site/static/img/logo.png";
 import "./network-orbit.css";
 
 type OrbitItem = {
@@ -148,32 +149,17 @@ export function NetworkOrbit() {
       onMouseLeave={handleContainerLeave}
       aria-label="Supported blockchain networks orbiting visualization"
     >
-      {/* Orbit path rings */}
+      {/* Trajectory */}
       <div className="no-ring no-ring-inner" />
       <div className="no-ring no-ring-outer" />
 
-      {/* Subtle radial glow behind center */}
+      {/* Center */}
       <div className="no-center-glow" />
-
-      {/* Center hub */}
       <div className="no-center">
-        <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
-          <polygon
-            points="12,2 22,7 22,17 12,22 2,17 2,7"
-            stroke="#ff6b1a"
-            strokeWidth="1.5"
-            fill="none"
-          />
-          <polygon
-            points="12,6 18,9 18,15 12,18 6,15 6,9"
-            fill="#ff6b1a"
-            opacity="0.3"
-          />
-          <circle cx="12" cy="12" r="2.5" fill="#ff6b1a" />
-        </svg>
+        <img src={logo} className="no-center-logo" />
       </div>
 
-      {/* Orbiting icons */}
+      {/* Planets */}
       {ORBIT_CONFIG.map((item, i) => {
         const isHovered = hovered === item.name;
         const Icon = item.icon;
@@ -198,8 +184,6 @@ export function NetworkOrbit() {
             <div className="no-icon-inner">
               <Icon variant="branded" />
             </div>
-
-            {/* Tooltip label */}
             {isHovered && <div className="no-tooltip">{item.name}</div>}
           </div>
         );

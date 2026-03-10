@@ -47,8 +47,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -63,9 +63,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
   background: rgba(26, 188, 156, 0.08);
   border: 1px solid rgba(26, 188, 156, 0.35);
   display: flex;
@@ -74,6 +74,11 @@
   z-index: 4;
   box-shadow: 0 0 24px rgba(26, 188, 156, 0.15);
   transition: box-shadow 0.3s;
+}
+
+.no-center-logo {
+  width: 40px;
+  height: 40px;
 }
 
 .no-wrapper:hover .no-center {
