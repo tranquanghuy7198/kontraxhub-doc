@@ -119,7 +119,11 @@ const realtimePositions = (t: number): Position[] =>
     },
   );
 
-export function NetworkOrbit() {
+export function NetworkOrbit({
+  onNetworkClick,
+}: {
+  onNetworkClick: (network: NetworkCluster) => void;
+}) {
   const animRef = useRef<number>(0);
   const timeRef = useRef<number>(0);
   const lastRef = useRef<number>(0);
@@ -193,6 +197,7 @@ export function NetworkOrbit() {
             }}
             onMouseEnter={() => setHovered(item.name)}
             onMouseLeave={() => setHovered(null)}
+            onClick={() => onNetworkClick(item.name)}
           >
             <div className="no-icon-inner">{item.icon}</div>
             {isHovered && <div className="no-tooltip">{item.name}</div>}

@@ -16,9 +16,10 @@ import {
   Sparkles,
 } from "lucide-react";
 import "./landing.css";
-import { pageLink, PRODUCT_NAME } from "@site/src/constants";
+import { NetworkCluster, pageLink, PRODUCT_NAME } from "@site/src/constants";
 import Logo from "@site/src/components/logo";
 import { NetworkOrbit } from "@site/src/components/network-orbit";
+import { useHistory } from "@docusaurus/router";
 
 const resources = [
   {
@@ -69,23 +70,43 @@ const resources = [
 ];
 
 const networks = [
-  { name: "EVM", status: "Supported", docs: "#" },
-  { name: "Solana (Anchor)", status: "Supported", docs: "#" },
-  { name: "Sui", status: "Supported", docs: "#" },
-  { name: "Aptos", status: "Supported", docs: "#" },
-  { name: "Cosmos", status: "Supported", docs: "#" },
+  { name: "EVM", cluster: NetworkCluster.Evm, status: "Supported" },
+  {
+    name: "Solana (Anchor)",
+    cluster: NetworkCluster.Solana,
+    status: "Supported",
+  },
+  { name: "Sui", cluster: NetworkCluster.Sui, status: "Supported" },
+  {
+    name: "Aptos",
+    cluster: NetworkCluster.Aptos,
+    status: "Supported",
+  },
+  {
+    name: "Cosmos",
+    cluster: NetworkCluster.Cosmos,
+    status: "Supported",
+  },
   {
     name: "NEAR",
+    cluster: NetworkCluster.Near,
     status: "Supported",
-    docs: "/docs/near/prepare-near-project",
   },
   {
     name: "Stellar",
+    cluster: NetworkCluster.Stellar,
     status: "Supported",
-    docs: "/docs/stellar/prepare-stellar-project",
   },
-  { name: "Polkadot", status: "Coming Soon", docs: null },
-  { name: "Ton", status: "Coming Soon", docs: null },
+  {
+    name: "Polkadot",
+    cluster: NetworkCluster.Polkadot,
+    status: "Coming Soon",
+  },
+  {
+    name: "Ton",
+    cluster: NetworkCluster.Ton,
+    status: "Coming Soon",
+  },
 ];
 
 const highlights = [
@@ -96,12 +117,17 @@ const highlights = [
 
 export default function Landing() {
   const [scrollY, setScrollY] = useState(0);
+  const history = useHistory();
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const goToDocs = (networkCluster: NetworkCluster) => {
+    history.push(`docs/category/${networkCluster}`);
+  };
 
   return (
     <div className="kh-landing">
@@ -273,10 +299,10 @@ export default function Landing() {
                       <span className="kh-td-1">{n.name}</span>
                       <span className="kh-td-2">{n.status}</span>
                       <span className="kh-td-3">
-                        {n.docs && n.docs !== "#" ? (
-                          <a href={n.docs}>Setup Guide →</a>
-                        ) : n.docs === "#" ? (
-                          <a href="#">Setup Guide →</a>
+                        {n.status === "Supported" ? (
+                          <a onClick={() => goToDocs(n.cluster)}>
+                            Setup Guide →
+                          </a>
                         ) : (
                           <span className="kh-td-soon">Coming soon</span>
                         )}
@@ -303,7 +329,7 @@ export default function Landing() {
 
             {/* Right: orbiting network icons */}
             <div className="kh-networks-orbit-col">
-              <NetworkOrbit />
+              <NetworkOrbit onNetworkClick={goToDocs} />
             </div>
           </div>
         </div>
