@@ -300,7 +300,7 @@ export default function Landing() {
                       <span className="kh-td-2">{n.status}</span>
                       <span className="kh-td-3">
                         {n.status === "Supported" ? (
-                          <a onClick={() => goToDocs(n.cluster)}>
+                          <a href="" onClick={() => goToDocs(n.cluster)}>
                             Setup Guide →
                           </a>
                         ) : (
