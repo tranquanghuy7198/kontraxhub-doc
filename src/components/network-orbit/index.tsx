@@ -7,6 +7,8 @@ import {
   NetworkStellar,
   NetworkNearProtocol,
   NetworkCosmos,
+  NetworkPolkadot,
+  NetworkTon,
 } from "@web3icons/react";
 import logo from "@site/static/img/logo.png";
 import "./network-orbit.css";
@@ -30,7 +32,6 @@ const TRAJECTORIES: Trajectory[] = [
 ];
 
 const ORBIT_CONFIG: OrbitItem[] = [
-  // Inner ring — 4 items, clockwise
   {
     name: "EVM",
     size: 42,
@@ -59,7 +60,6 @@ const ORBIT_CONFIG: OrbitItem[] = [
     icon: NetworkNearProtocol,
     trajectory: 0,
   },
-  // Outer ring — 5 items, counter-clockwise
   {
     name: "Sui",
     size: 42,
@@ -79,6 +79,20 @@ const ORBIT_CONFIG: OrbitItem[] = [
     size: 42,
     glowColor: "#9B8FFF",
     icon: NetworkStellar,
+    trajectory: 1,
+  },
+  {
+    name: "Polkadot",
+    size: 42,
+    glowColor: "#FFB300",
+    icon: NetworkPolkadot,
+    trajectory: 1,
+  },
+  {
+    name: "Ton",
+    size: 42,
+    glowColor: "#FFB300",
+    icon: NetworkTon,
     trajectory: 1,
   },
 ];
