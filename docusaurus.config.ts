@@ -81,6 +81,11 @@ const config: Config = {
       logo: {
         alt: "KontraxHub",
         src: "img/logo.png",
+        style: {
+          width: "20px",
+          height: "20px",
+          marginTop: "6px",
+        },
       },
       items: [
         {
