@@ -70,42 +70,50 @@ const resources = [
 ];
 
 const networks = [
-  { name: "EVM", cluster: NetworkCluster.Evm, status: "Supported" },
+  {
+    name: "EVM",
+    cluster: NetworkCluster.Evm,
+    supported: true,
+  },
   {
     name: "Solana (Anchor)",
     cluster: NetworkCluster.Solana,
-    status: "Supported",
+    supported: true,
   },
-  { name: "Sui", cluster: NetworkCluster.Sui, status: "Supported" },
+  {
+    name: "Sui",
+    cluster: NetworkCluster.Sui,
+    supported: true,
+  },
   {
     name: "Aptos",
     cluster: NetworkCluster.Aptos,
-    status: "Supported",
+    supported: true,
   },
   {
     name: "Cosmos",
     cluster: NetworkCluster.Cosmos,
-    status: "Supported",
+    supported: true,
   },
   {
     name: "NEAR",
     cluster: NetworkCluster.Near,
-    status: "Supported",
+    supported: true,
   },
   {
     name: "Stellar",
     cluster: NetworkCluster.Stellar,
-    status: "Supported",
+    supported: true,
   },
   {
     name: "Polkadot",
     cluster: NetworkCluster.Polkadot,
-    status: "Coming Soon",
+    supported: false,
   },
   {
     name: "Ton",
     cluster: NetworkCluster.Ton,
-    status: "Coming Soon",
+    supported: false,
   },
 ];
 
@@ -297,9 +305,11 @@ export default function Landing() {
                   {networks.map((n) => (
                     <div className="kh-table-row" key={n.name}>
                       <span className="kh-td-1">{n.name}</span>
-                      <span className="kh-td-2">{n.status}</span>
+                      <span className="kh-td-2">
+                        {n.supported ? "Supported" : "Coming soon"}
+                      </span>
                       <span className="kh-td-3">
-                        {n.status === "Supported" ? (
+                        {n.supported ? (
                           <a href="" onClick={() => goToDocs(n.cluster)}>
                             Setup Guide →
                           </a>
