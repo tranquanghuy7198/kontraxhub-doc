@@ -550,6 +550,10 @@
 .kh-td-1 {
   font-weight: 500;
   color: var(--kh-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 .kh-td-2 {
   font-size: 0.875rem;

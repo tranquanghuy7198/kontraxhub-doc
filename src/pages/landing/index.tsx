@@ -1,5 +1,16 @@
 import { useState, useEffect } from "react";
 import {
+  NetworkEthereum,
+  NetworkSolana,
+  NetworkSui,
+  NetworkAptos,
+  NetworkStellar,
+  NetworkNearProtocol,
+  NetworkCosmos,
+  NetworkPolkadot,
+  NetworkTon,
+} from "@web3icons/react";
+import {
   ArrowRight,
   Code,
   Users,
@@ -74,46 +85,55 @@ const networks = [
     name: "EVM",
     cluster: NetworkCluster.Evm,
     supported: true,
+    icon: NetworkEthereum,
   },
   {
-    name: "Solana (Anchor)",
+    name: "Solana",
     cluster: NetworkCluster.Solana,
     supported: true,
+    icon: NetworkSolana,
   },
   {
     name: "Sui",
     cluster: NetworkCluster.Sui,
     supported: true,
+    icon: NetworkSui,
   },
   {
     name: "Aptos",
     cluster: NetworkCluster.Aptos,
     supported: true,
+    icon: NetworkAptos,
   },
   {
     name: "Cosmos",
     cluster: NetworkCluster.Cosmos,
     supported: true,
+    icon: NetworkCosmos,
   },
   {
     name: "NEAR",
     cluster: NetworkCluster.Near,
     supported: true,
+    icon: NetworkNearProtocol,
   },
   {
     name: "Stellar",
     cluster: NetworkCluster.Stellar,
     supported: true,
+    icon: NetworkStellar,
   },
   {
     name: "Polkadot",
     cluster: NetworkCluster.Polkadot,
     supported: false,
+    icon: NetworkPolkadot,
   },
   {
     name: "Ton",
     cluster: NetworkCluster.Ton,
     supported: false,
+    icon: NetworkTon,
   },
 ];
 
@@ -302,23 +322,29 @@ export default function Landing() {
                   <span className="kh-th-3">Documentation</span>
                 </div>
                 <div className="kh-table-body">
-                  {networks.map((n) => (
-                    <div className="kh-table-row" key={n.name}>
-                      <span className="kh-td-1">{n.name}</span>
-                      <span className="kh-td-2">
-                        {n.supported ? "Supported" : "Coming soon"}
-                      </span>
-                      <span className="kh-td-3">
-                        {n.supported ? (
-                          <a href="" onClick={() => goToDocs(n.cluster)}>
-                            Setup Guide →
-                          </a>
-                        ) : (
-                          <span className="kh-td-soon">Coming soon</span>
-                        )}
-                      </span>
-                    </div>
-                  ))}
+                  {networks.map((n) => {
+                    const NetworkIcon = n.icon;
+                    return (
+                      <div className="kh-table-row" key={n.name}>
+                        <span className="kh-td-1">
+                          <NetworkIcon size={20} variant="mono" />
+                          {n.name}
+                        </span>
+                        <span className="kh-td-2">
+                          {n.supported ? "Supported" : "Coming soon"}
+                        </span>
+                        <span className="kh-td-3">
+                          {n.supported ? (
+                            <a href="" onClick={() => goToDocs(n.cluster)}>
+                              Setup Guide →
+                            </a>
+                          ) : (
+                            <span className="kh-td-soon">Coming soon</span>
+                          )}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
