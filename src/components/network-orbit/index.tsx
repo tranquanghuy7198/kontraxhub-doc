@@ -187,7 +187,9 @@ export function NetworkOrbit({
             style={{
               width: item.size,
               height: item.size,
-              transform: `translate(calc(-50% + ${positions[i].x}px), calc(-50% + ${positions[i].y}px))`,
+              transform: `translate(calc(-50% + ${positions[i].x}px), calc(-50% + ${positions[i].y}px)) scale(${isHovered ? 1.2 : 1})`,
+              transition:
+                "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
               boxShadow: isHovered
                 ? `0 0 20px 5px ${item.glowColor}55, 0 0 40px 8px ${item.glowColor}22`
                 : `0 0 8px 1px ${item.glowColor}18`,
