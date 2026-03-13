@@ -183,25 +183,34 @@ export function NetworkOrbit({
         return (
           <div
             key={item.name}
-            className={`no-icon${isHovered ? " no-icon--hovered" : ""}`}
             style={{
               width: item.size,
               height: item.size,
-              transform: `translate(calc(-50% + ${positions[i].x}px), calc(-50% + ${positions[i].y}px)) scale(${isHovered ? 1.2 : 1})`,
-              transition:
-                "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
-              boxShadow: isHovered
-                ? `0 0 20px 5px ${item.glowColor}55, 0 0 40px 8px ${item.glowColor}22`
-                : `0 0 8px 1px ${item.glowColor}18`,
-              borderColor: isHovered
-                ? `${item.glowColor}88`
-                : "rgba(255,255,255,0.07)",
+              transform: `translate(calc(-50% + ${positions[i].x}px), calc(-50% + ${positions[i].y}px))`,
+              position: "absolute",
             }}
             onMouseEnter={() => setHovered(item.name)}
             onMouseLeave={() => setHovered(null)}
             onClick={() => onNetworkClick(item.name)}
           >
-            <div className="no-icon-inner">{item.icon}</div>
+            <div
+              className={`no-icon${isHovered ? " no-icon--hovered" : ""}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                transform: isHovered ? "scale(1.2)" : "scale(1)",
+                transition:
+                  "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
+                boxShadow: isHovered
+                  ? `0 0 20px 5px ${item.glowColor}55, 0 0 40px 8px ${item.glowColor}22`
+                  : `0 0 8px 1px ${item.glowColor}18`,
+                borderColor: isHovered
+                  ? `${item.glowColor}88`
+                  : "rgba(255,255,255,0.07)",
+              }}
+            >
+              <div className="no-icon-inner">{item.icon}</div>
+            </div>
             {isHovered && <div className="no-tooltip">{item.name}</div>}
           </div>
         );
