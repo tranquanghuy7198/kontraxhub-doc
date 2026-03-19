@@ -138,7 +138,7 @@ const networks = [
 ];
 
 const highlights = [
-  { Icon: Shield, label: "No login required" },
+  { Icon: Shield, label: "Web3 authentication" },
   { Icon: Zap, label: "Real-time interaction" },
   { Icon: Layers, label: "Multi-network" },
 ];
