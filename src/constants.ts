@@ -18,6 +18,7 @@ export const PAGES: Record<string, PageMetadata> = {
     endpoint: "/workspace-explorer/:id",
   },
   embed: { name: "Embed", endpoint: "/embed/:id" },
+  profile: { name: "Profile", endpoint: "/profile" },
 };
 
 export enum NetworkCluster {

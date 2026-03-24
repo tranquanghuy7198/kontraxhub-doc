@@ -1,6 +1,6 @@
 {
   "label": "Solana",
-  "position": 3,
+  "position": 4,
   "link": {
     "type": "generated-index",
     "description": "This section provides instructions for deploying and interacting with Solana programs. We recommend using Anchor, a robust and industry-standard framework for developing Solana programs. This documentation focuses on the process of generating Solana-related data and build artifacts using Anchor."

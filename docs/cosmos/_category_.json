@@ -1,6 +1,6 @@
 {
   "label": "Cosmos",
-  "position": 4,
+  "position": 5,
   "link": {
     "type": "generated-index",
     "description": "This section provides instructions for deploying and interacting with CosmWasm smart contracts. We recommend using Rust and Cargo, a robust and industry-standard framework for developing CosmWasm smart contracts. This documentation focuses on the process of generating Cosmos-related data and build artifacts using CosmWasm."

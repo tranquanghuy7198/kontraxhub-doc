@@ -1,0 +1,35 @@
+---
+sidebar_position: 2
+---
+
+import PageLink from "@site/src/components/page-link";
+
+# Web3 Authentication
+
+<PageLink id="home" /> utilizes Web3 authentication based on wallet ownership and cryptographic signatures. By signing a message with your wallet, you can securely verify your identity and gain access to the platform.
+
+This approach provides a faster and more seamless alternative to traditional Web2 authentication methods. You simply select your preferred wallet and follow the on-screen instructions to complete the authentication process.
+
+For new users, an account will be automatically created upon first sign-in. This enables immediate access to <PageLink id="home" /> without requiring additional setup steps.
+
+# Account Management
+
+All connected wallets can be managed through <PageLink id="profile" />. From there, you can easily add new wallets or remove existing ones.
+
+Since <PageLink id="home" /> relies on Web3 authentication, your identity is directly tied to your connected wallets. Therefore, it is important to manage them carefully. Removing a wallet means it can no longer be used to access your current account.
+
+# Account Merge
+
+## What happens if I sign in with a removed wallet?
+
+If a wallet has been removed from your account, it can no longer be used to authenticate that account. Attempting to sign in with the removed wallet will result in the creation of a new account, as <PageLink id="home" /> will treat it as a new user.
+
+## What happens if I connect the same wallet to different accounts?
+
+Assume you have two accounts, A and B, and wallet X is currently connected to account A. If you attempt to connect wallet X to account B, the system will automatically detect the overlap and merge the two accounts.
+
+All data from both accounts will be consolidated into a single account, ensuring that no information is lost. This behavior is designed to simplify account management and maintain data consistency.
+
+## Is account merging reversible?
+
+No. Account merging is permanent and cannot be undone. Once multiple accounts are merged, all associated data is combined into a single account.
