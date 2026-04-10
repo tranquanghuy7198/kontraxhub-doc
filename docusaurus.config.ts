@@ -2,7 +2,6 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type { ScalarOptions } from "@scalar/docusaurus";
-import apiSpec from "./static/api-spec.json";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -157,7 +156,7 @@ const config: Config = {
         route: "/dev-apis",
         showNavLink: true, // optional, default is true
         configuration: {
-          spec: { content: apiSpec },
+          url: "https://chainforge-backend-smef.onrender.com/swagger.json",
         },
       } as ScalarOptions,
     ],
