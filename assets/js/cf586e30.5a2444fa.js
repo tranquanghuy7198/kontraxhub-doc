@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkkontrax_doc=globalThis.webpackChunkkontrax_doc||[]).push([[9],{1942:a=>{a.exports=JSON.parse('{"name":"@scalar/docusaurus","id":"default"}')}}]);
