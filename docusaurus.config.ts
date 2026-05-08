@@ -156,7 +156,7 @@ const config: Config = {
         route: "/dev-apis",
         showNavLink: true, // optional, default is true
         configuration: {
-          url: "https://chainforge-backend-smef.onrender.com/swagger-dev.json",
+          url: "https://undecided-audibly-reputable.ngrok-free.dev/swagger-dev.json",
         },
       } as ScalarOptions,
     ],
